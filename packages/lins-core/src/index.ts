@@ -4,11 +4,10 @@ import { Mustache, winPath } from 'umi/plugin-utils';
 
 import type { IApi } from 'umi';
 
-const absPluginDir = 'plugin-lins-core';
-
 export default (api: IApi) => {
+
   api.describe({
-    key: 'linsCore',
+    key: 'lins-core',
     config: {
       schema(joi) {
         return joi.object({
@@ -50,7 +49,7 @@ export default (api: IApi) => {
 
   // Runtime Plugin
   api.addRuntimePlugin(() => [
-    join(api.paths.absTmpPath, absPluginDir, 'runtime.tsx')
+    join(api.paths.absTmpPath, api.plugin.key, 'runtime.tsx')
   ]);
   api.addRuntimePluginKey(() => ['linsCore']);
 }
