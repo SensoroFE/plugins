@@ -49,7 +49,7 @@ export default (api: IApi) => {
 
   // Runtime Plugin
   api.addRuntimePlugin(() => [
-    join(api.paths.absTmpPath, api.plugin.key, 'runtime.tsx')
+    join(api.paths.absTmpPath, `plugin-${api.plugin.key}`, 'runtime.tsx')
   ]);
   api.addRuntimePluginKey(() => ['linsCore']);
 }
