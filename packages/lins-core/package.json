@@ -1,0 +1,21 @@
+{
+  "name": "@sensoro/umi-plugin-lins-core",
+  "version": "2.0.0",
+  "description": "lins core umi plugin",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "scripts": {
+    "build": "pnpm tsc"
+  },
+  "authors": [
+    "wangxingkang <wang_xingkang@qq.com> (https://github.com/wangxingkang)"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
