@@ -1,7 +1,6 @@
 {
   "name": "plugins",
   "private": true,
-  "version": "1.0.0",
   "description": "umi4 plugins",
   "scripts": {
     "build": "turbo run build",
