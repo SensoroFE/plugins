@@ -7,7 +7,7 @@ import type { IApi } from 'umi';
 export default (api: IApi) => {
 
   api.describe({
-    key: 'lins-core',
+    key: 'linsCore',
     config: {
       schema(joi) {
         return joi.object({
