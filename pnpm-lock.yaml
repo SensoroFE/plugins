@@ -34,9 +34,20 @@ importers:
     dependencies:
       antd: 4.20.3_react-dom@17.0.2+react@17.0.2
       lins-core: 1.0.1-beta.7_569957a51d469c962fcce166a59b9f78
-      lins-login: 1.2.0_react-dom@17.0.2+react@17.0.2
+      lins-login: 1.2.0_69a070f75292f2afce2d05cc7b1da69c
     devDependencies:
       '@sensoro/umi-plugin-lins-core': link:../../packages/lins-core
+      '@umijs/max': 4.0.0-rc.15_4a66bc00b878bb8cd2104f686114ae4f
+
+  examples/sensoro-design:
+    specifiers:
+      '@sensoro-design/react': ^1.2.0
+      '@sensoro/umi-plugin-sensoro-design-react': workspace:*
+      '@umijs/max': ^4.0.0-rc.15
+    dependencies:
+      '@sensoro-design/react': 1.2.0_569957a51d469c962fcce166a59b9f78
+    devDependencies:
+      '@sensoro/umi-plugin-sensoro-design-react': link:../../packages/sensoro-design-react
       '@umijs/max': 4.0.0-rc.15_4a66bc00b878bb8cd2104f686114ae4f
 
   packages/lins-core:
@@ -44,6 +55,12 @@ importers:
       lins-core: ^1.0.1-beta.7
     dependencies:
       lins-core: 1.0.1-beta.7_569957a51d469c962fcce166a59b9f78
+
+  packages/sensoro-design-react:
+    specifiers:
+      '@sensoro-design/react': ^1.2.0
+    dependencies:
+      '@sensoro-design/react': 1.2.0_569957a51d469c962fcce166a59b9f78
 
 packages:
 
@@ -9703,7 +9720,7 @@ packages:
       - utf-8-validate
     dev: false
 
-  /lins-login/1.2.0_react-dom@17.0.2+react@17.0.2:
+  /lins-login/1.2.0_69a070f75292f2afce2d05cc7b1da69c:
     resolution: {integrity: sha512-357aU4Ep+m2xeyyExeCntyCCR4myqRxb6JIOZRlrTMnO0VAJ4EjAVjEtJbglQKrBoOlTHJvK+SOqX5hnXYfC8Q==}
     peerDependencies:
       lins-core: ^1.0.0
@@ -9712,6 +9729,7 @@ packages:
       '@pansy/react-hooks': 0.9.10_react@17.0.2
       '@pansy/smart-captcha': 1.2.0_react@17.0.2
       antd: 4.20.3_react-dom@17.0.2+react@17.0.2
+      lins-core: 1.0.1-beta.7_569957a51d469c962fcce166a59b9f78
       lodash: 4.17.21
       react-helmet: 6.1.0_react@17.0.2
     transitivePeerDependencies:

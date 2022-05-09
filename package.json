@@ -5,6 +5,7 @@
   "scripts": {
     "build": "turbo run build",
     "example:lins-core": "pnpm -r --filter @example/lins-core run start",
+    "example:sensoro-design": "pnpm -r --filter @example/sensoro-design run start",
     "release": "walrus release"
   },
   "repository": {
