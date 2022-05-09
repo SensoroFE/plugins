@@ -5,6 +5,7 @@
     "start": "max dev"
   },
   "dependencies": {
+    "antd": "^4.20.3",
     "lins-core": "^1.0.1-beta.7",
     "lins-login": "1.2.0"
   },

@@ -1,6 +1,8 @@
 import { join } from 'path';
 import { readFileSync } from 'fs';
+import { dirname } from 'path';
 import { Mustache, winPath } from 'umi/plugin-utils';
+import { resolveProjectDep } from './utils';
 
 import type { IApi } from 'umi';
 
@@ -17,10 +19,36 @@ export default (api: IApi) => {
           service: joi.object({
             prefix: joi.string(),
           }),
+          noLoginPaths: joi.string(),
         });
       },
     },
     enableBy: api.EnableBy.config
+  });
+
+  let pkgPath =
+    resolveProjectDep({
+      pkg: api.pkg,
+      cwd: api.cwd,
+      dep: 'lins-core',
+    }) || dirname(require.resolve('lins-core'));
+
+  // pkgPath = '/Users/sensoro/Documents/projects/sensoro-github/plugins/node_modules/lins-core';
+
+  console.log(pkgPath);
+
+  api.modifyAppData((memo) => {
+    const version = require(`${pkgPath}/package.json`).version;
+    memo.pluginLayout = {
+      pkgPath,
+      version,
+    };
+    return memo;
+  });
+
+  api.modifyConfig((memo) => {
+    memo.alias['lins-core'] = pkgPath;
+    return memo;
   });
 
   api.onGenerateFiles(async () => {
