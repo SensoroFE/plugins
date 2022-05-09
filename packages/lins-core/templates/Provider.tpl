@@ -42,12 +42,7 @@ export default (props) => {
   const runtimeConfig = pluginManager.applyPlugins({
     key: 'linsCore',
     type: 'modify',
-    initialValue: {
-      noLoginPaths: [
-        '/login',
-        '/exception/:path?'
-      ]
-    },
+    initialValue: {},
   });
 
   return (
