@@ -1,0 +1,15 @@
+{
+  "name": "@example/lins-core",
+  "private": true,
+  "scripts": {
+    "start": "max dev"
+  },
+  "dependencies": {
+    "lins-core": "^1.0.1-beta.7",
+    "lins-login": "1.2.0"
+  },
+  "devDependencies": {
+    "@sensoro/umi-plugin-lins-core": "workspace:*",
+    "@umijs/max": "^4.0.0-rc.15"
+  }
+}

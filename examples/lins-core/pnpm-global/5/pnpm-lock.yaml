@@ -1,0 +1,7 @@
+lockfileVersion: 5.3
+
+specifiers:
+  lins-core: ^1.0.1-beta.7
+
+dependencies:
+  lins-core: link:../../../../../../../../.nvm/versions/node/v16.15.0/pnpm-global/5/node_modules/lins-core
