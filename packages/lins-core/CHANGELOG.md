@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.5](https://github.com/SensoroFE/plugins/compare/@sensoro/umi-plugin-lins-core@2.0.4...@sensoro/umi-plugin-lins-core@2.0.5) (2022-05-09)
+
+**Note:** Version bump only for package @sensoro/umi-plugin-lins-core
+
+
+
+
+
 ## [2.0.4](https://github.com/SensoroFE/plugins/compare/@sensoro/umi-plugin-lins-core@2.0.3...@sensoro/umi-plugin-lins-core@2.0.4) (2022-05-02)
 
 **Note:** Version bump only for package @sensoro/umi-plugin-lins-core
