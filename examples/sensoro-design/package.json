@@ -1,0 +1,16 @@
+{
+  "name": "@example/sensoro-design",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "max dev"
+  },
+  "dependencies": {
+    "@sensoro-design/react": "^1.2.0"
+  },
+  "devDependencies": {
+    "@sensoro/umi-plugin-sensoro-design-react": "workspace:*",
+    "@umijs/max": "^4.0.0-rc.15"
+  }
+}
