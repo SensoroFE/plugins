@@ -4,6 +4,7 @@
   "description": "umi4 plugins",
   "scripts": {
     "build": "turbo run build",
+    "example:lins-core": "pnpm -r --filter @example/lins-core run start",
     "release": "walrus release"
   },
   "repository": {
@@ -16,10 +17,14 @@
   },
   "homepage": "https://github.com/SensoroFE/plugins#readme",
   "devDependencies": {
+    "@types/react": "^17",
+    "@types/react-dom": "^17",
     "@walrus/cli": "^1.3.4",
     "@walrus/plugin-release": "^1.14.3",
-    "turbo": "^1.2.6",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "turbo": "^1.2.8",
     "typescript": "^4.6.4",
-    "umi": "^4.0.0-rc.14"
+    "umi": "^4.0.0-rc.15"
   }
 }
