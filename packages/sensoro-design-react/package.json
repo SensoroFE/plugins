@@ -1,0 +1,20 @@
+{
+  "name": "@sensoro/umi-plugin-sensoro-design-react",
+  "version": "1.0.0",
+  "description": "Sensoro design umi plugin",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pnpm tsc"
+  },
+  "authors": [
+    "wangxingkang <wang_xingkang@qq.com> (https://github.com/wangxingkang)"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
