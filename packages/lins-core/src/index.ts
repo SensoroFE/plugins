@@ -33,10 +33,6 @@ export default (api: IApi) => {
       dep: 'lins-core',
     }) || dirname(require.resolve('lins-core'));
 
-  // pkgPath = '/Users/sensoro/Documents/projects/sensoro-github/plugins/node_modules/lins-core';
-
-  console.log(pkgPath);
-
   api.modifyAppData((memo) => {
     const version = require(`${pkgPath}/package.json`).version;
     memo.pluginLayout = {
