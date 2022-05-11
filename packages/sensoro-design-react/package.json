@@ -14,7 +14,7 @@
     "wangxingkang <wang_xingkang@qq.com> (https://github.com/wangxingkang)"
   ],
   "dependencies": {
-    "@sensoro-design/react": "^1.2.0"
+    "@sensoro-design/react": "^1.2.1"
   },
   "license": "MIT",
   "publishConfig": {
