@@ -1,10 +1,9 @@
 import React from 'react';
 import {
+  App,
   init,
   verifyRoutes,
-  useGlobalService,
   useCoreState,
-  GlobalService,
 } from 'lins-core';
 import { useAppData } from 'umi';
 
@@ -37,7 +36,6 @@ const Children: React.FC = ({
 
 export default (props) => {
   const { pluginManager } = useAppData();
-  const globalService = useGlobalService();
 
   const runtimeConfig = pluginManager.applyPlugins({
     key: 'linsCore',
@@ -46,10 +44,10 @@ export default (props) => {
   });
 
   return (
-    <GlobalService.Provider value={globalService}>
+    <App>
       <Children {...runtimeConfig}>
         {props.children}
       </Children>
-    </GlobalService.Provider>
+    </App>
   )
 }
