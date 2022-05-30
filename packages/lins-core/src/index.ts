@@ -7,6 +7,16 @@ import { resolveProjectDep } from './utils';
 import type { IApi } from 'umi';
 
 export default (api: IApi) => {
+  let pkgPath: string;
+
+  try {
+    pkgPath =
+      resolveProjectDep({
+        pkg: api.pkg,
+        cwd: api.cwd,
+        dep: 'lins-core',
+      }) || dirname(require.resolve('lins-core/package.json'));
+  } catch (e) {}
 
   api.describe({
     key: 'linsCore',
@@ -26,24 +36,25 @@ export default (api: IApi) => {
     enableBy: api.EnableBy.config
   });
 
-  let pkgPath =
-    resolveProjectDep({
-      pkg: api.pkg,
-      cwd: api.cwd,
-      dep: 'lins-core',
-    }) || dirname(require.resolve('lins-core'));
+  function checkPkgPath() {
+    if (!pkgPath) {
+      throw new Error(`Can't find lins-core package. Please install lins-core first.`);
+    }
+  }
 
-  api.modifyAppData((memo) => {
-    const version = require(`${pkgPath}/package.json`).version;
-    memo.pluginLayout = {
-      pkgPath,
-      version,
-    };
+  api.modifyConfig((memo) => {
+    checkPkgPath();
+
+    memo.alias['lins-core'] = pkgPath;
     return memo;
   });
 
-  api.modifyConfig((memo) => {
-    memo.alias['lins-core'] = pkgPath;
+  api.modifyAppData((memo) => {
+    const version = require(`${pkgPath}/package.json`).version;
+    memo.linsCore = {
+      pkgPath,
+      version,
+    };
     return memo;
   });
 
