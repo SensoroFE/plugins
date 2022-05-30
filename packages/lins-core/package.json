@@ -1,6 +1,6 @@
 {
   "name": "@sensoro/umi-plugin-lins-core",
-  "version": "2.0.5",
+  "version": "2.1.0",
   "description": "lins core umi plugin",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
