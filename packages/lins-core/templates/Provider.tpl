@@ -4,6 +4,7 @@ import {
   init,
   verifyRoutes,
   useCoreState,
+  useRequestDictionary,
 } from 'lins-core';
 import { useAppData } from 'umi';
 
@@ -15,6 +16,7 @@ const Children: React.FC = ({
   children
 }) => {
   const running = useCoreState();
+  const running1 = useRequestDictionary();
   const { pathname } = location;
 
   // 无需登录页面直接放行
@@ -29,7 +31,7 @@ const Children: React.FC = ({
 
   return (
     <>
-      {running && children}
+      {running && running1 && children}
     </>
   )
 }
