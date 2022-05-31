@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/SensoroFE/plugins/compare/@sensoro/umi-plugin-lins-core@2.2.0...@sensoro/umi-plugin-lins-core@2.3.0) (2022-05-31)
+
+
+### Features
+
+* 支持设置字典加载 ([5886f89](https://github.com/SensoroFE/plugins/commit/5886f8926a1cf28b7b32dc7d6c1c1d296099a1f6))
+
+
+
+
+
 # [2.2.0](https://github.com/SensoroFE/plugins/compare/@sensoro/umi-plugin-lins-core@2.1.0...@sensoro/umi-plugin-lins-core@2.2.0) (2022-05-31)
 
 
