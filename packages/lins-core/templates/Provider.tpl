@@ -3,27 +3,34 @@ import {
   App,
   init,
   verifyRoutes,
-  usePassport,
+  useCore,
   useCoreState,
-  useRequestDictionary,
 } from 'lins-core';
 import { useAppData, history } from 'umi';
 
 init({{{config}}})
 
-const Children: React.FC = ({
-  noLoginPaths = [],
+const dictionaryKeys = {{{dictionary}}};
+
+const Children = ({
+  noLoginPaths = ['/login'],
   loading,
   children
 }) => {
-  const { refreshMe, getToken, } = usePassport();
+  const { refreshMe, getToken, dictionaryRun } = useCore();
   const running = useCoreState();
-  const dictionaryRunning = useRequestDictionary();
   const { pathname } = location;
+  const token = getToken();
 
   useEffect(() => {
     if (!verifyRoutes(noLoginPaths, location.pathname)) {
-      refreshMe();
+      if (token) {
+        refreshMe();
+        dictionaryRun(dictionaryKeys)
+      } else {
+        history.push('/login');
+        location.reload()
+      }
     }
 
     const unlisten = history.listen(({ location }) => {
@@ -35,6 +42,7 @@ const Children: React.FC = ({
       ) {
         if (token) {
           refreshMe();
+          dictionaryRun(dictionaryKeys)
           return;
         }
 
@@ -53,13 +61,13 @@ const Children: React.FC = ({
   }
 
   // 需要登录的页面
-  if ((!running || !dictionaryRunning) && loading) {
+  if ((!running) && loading) {
     return loading;
   }
 
   return (
     <>
-      {running && dictionaryRunning && children}
+      {running && children}
     </>
   )
 }

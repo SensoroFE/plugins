@@ -29,6 +29,7 @@ export default (api: IApi) => {
           service: joi.object({
             prefix: joi.string(),
           }),
+          dictionary: joi.array(),
           noLoginPaths: joi.string(),
         });
       },
@@ -64,10 +65,14 @@ export default (api: IApi) => {
       join(winPath(__dirname), '../templates', 'Provider.tpl'),
       'utf-8',
     );
+
+    const { dictionary = [], skipStateCheck = false, ...rest } = api.config.linsCore ?? {};
+
     api.writeTmpFile({
       path: `Provider.tsx`,
       content: Mustache.render(coreTpl, {
-        config: JSON.stringify(api.config.linsCore ?? {}),
+        config: JSON.stringify(rest ?? {}),
+        dictionary: JSON.stringify(dictionary),
       }),
     });
 
