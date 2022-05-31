@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/SensoroFE/plugins/compare/@sensoro/umi-plugin-lins-core@2.1.0...@sensoro/umi-plugin-lins-core@2.2.0) (2022-05-31)
+
+
+### Features
+
+* 解决无需登录页面也会请求接口问题 ([5714a2a](https://github.com/SensoroFE/plugins/commit/5714a2aaa7b9f7e5e66dbfd610650fb011a58360))
+
+
+
+
+
 # [2.1.0](https://github.com/SensoroFE/plugins/compare/@sensoro/umi-plugin-lins-core@2.0.5...@sensoro/umi-plugin-lins-core@2.1.0) (2022-05-30)
 
 
