@@ -16,15 +16,15 @@ const Children = ({
   children
 }) => {
   const [status, setStatus] = useState('init');
-  const { refreshMe, getToken, dictionaryRun, getMeData } = useCore();
+  const { fetchMe, getToken, fetchDictionary, getMeData } = useCore();
   const { pathname } = location;
   const token = getToken();
 
   const handleFetchData = async () => {
     setStatus('loading');
 
-    await refreshMe();
-    await dictionaryRun(dicKeys);
+    await fetchMe();
+    await fetchDictionary(dicKeys);
 
     setStatus('pass');
   }
