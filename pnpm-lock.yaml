@@ -29,7 +29,7 @@ importers:
       '@sensoro/umi-plugin-lins-core': workspace:*
       '@umijs/max': ^4.0.0-rc.15
       antd: ^4.20.3
-      lins-core: ^1.0.1-beta.7
+      lins-core: ^1.6.4
       lins-login: 1.2.0
     dependencies:
       antd: 4.21.5
@@ -51,7 +51,10 @@ importers:
       '@umijs/max': 4.0.1
 
   packages/lins-core:
-    specifiers: {}
+    specifiers:
+      lins-core: ^1.6.4
+    dependencies:
+      lins-core: 1.6.4
 
   packages/sensoro-design-react:
     specifiers:
