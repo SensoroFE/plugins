@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import {
   App,
   init,
   verifyRoutes,
   useCore,
 } from 'lins-core';
-import { useAppData, history } from 'umi';
+import { useAppData } from 'umi';
 
 const config = {{{config}}}
 const dicKeys = {{{dictionary}}};
@@ -15,88 +15,25 @@ const Children = ({
   loading,
   children
 }) => {
-  const [status, setStatus] = useState('init');
-  const { fetchMe, getToken, fetchDictionary, getMeData } = useCore();
+  const { meLoading, fetchDictionary, getDictionaryState, token } = useCore();
   const { pathname } = location;
-  const token = getToken();
-
-  const handleFetchData = async () => {
-    setStatus('loading');
-
-    await fetchMe();
-    await fetchDictionary(dicKeys);
-
-    setStatus('pass');
-  }
 
   useEffect(() => {
-    const unlisten = history.listen((e) => {
-      const token = getToken();
+    const dictionaryState = getDictionaryState(dicKeys).filter(item => !item);
 
-      // 跳转无需登录页面，直接放行
-      if (
-        verifyRoutes(noLoginPaths, e.location.pathname)
-      ) {
-        setStatus('pass');
-        return;
-      }
-
-      // 从登录页面跳转而来，必须获取用户信息
-      if (
-        pathname === '/login' &&
-        !verifyRoutes(noLoginPaths, e.location.pathname)
-      ) {
-        handleFetchData();
-        return;
-      }
-
-      // 无需登录的页面 >> 需要登录的页面
-      if (
-        verifyRoutes(noLoginPaths, pathname) &&
-        !verifyRoutes(noLoginPaths, e.location.pathname)
-      ) {
-        if (meData) {
-          setStatus('pass');
-          return;
-        };
-
-        if (token) {
-          handleFetchData();
-          return;
-        }
-
-        history.push('/login')
-      }
-    });
-
-    const meData = getMeData();
-
-    if (verifyRoutes(noLoginPaths, pathname) || meData) {
-      setStatus('pass');
-      return;
+    if (token && dictionaryState.length) {
+      fetchDictionary(dicKeys);
     }
-
-    if (!verifyRoutes(noLoginPaths, pathname)) {
-      if (token) {
-        handleFetchData();
-      } else {
-        history.push('/login');
-      }
-    }
-
-    return () => {
-      unlisten();
-    }
-  }, []);
+  }, [token])
 
   // 需要登录的页面
-  if (status === 'loading' && loading) {
+  if (meLoading && loading && verifyRoutes(noLoginPaths, pathname)) {
     return loading;
   }
 
   return (
     <>
-      {status === 'pass' && children}
+      {children}
     </>
   )
 }
