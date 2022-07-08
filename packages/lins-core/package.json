@@ -11,6 +11,9 @@
   "scripts": {
     "build": "pnpm tsc"
   },
+  "dependencies": {
+    "lins-core": "^1.6.4"
+  },
   "authors": [
     "wangxingkang <wang_xingkang@qq.com> (https://github.com/wangxingkang)"
   ],
