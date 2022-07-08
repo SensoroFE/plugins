@@ -27,7 +27,7 @@ const Children = ({
   }, [token])
 
   // 需要登录的页面
-  if (meLoading && loading && verifyRoutes(noLoginPaths, pathname)) {
+  if (meLoading && loading && !verifyRoutes(noLoginPaths, pathname)) {
     return loading;
   }
 
