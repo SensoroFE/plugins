@@ -12,11 +12,12 @@ const dicKeys = {{{dictionary}}};
 
 const Children = ({
   noLoginPaths = ['/login'],
-  loading,
+  loading = null,
   children
 }) => {
-  const { meLoading, fetchDictionary, getDictionaryState, token } = useCore();
+  const { meLoading, fetchDictionary, getDictionaryState, token, getMeData } = useCore();
   const { pathname } = location;
+  const meData = getMeData();
 
   useEffect(() => {
     const dictionaryState = getDictionaryState(dicKeys).filter(item => !item);
@@ -27,7 +28,10 @@ const Children = ({
   }, [token])
 
   // 需要登录的页面
-  if (meLoading && loading && !verifyRoutes(noLoginPaths, pathname)) {
+  if (
+    (meLoading && !verifyRoutes(noLoginPaths, pathname)) ||
+    (!meData?.project && !verifyRoutes(noLoginPaths, pathname))
+  ) {
     return loading;
   }
 
